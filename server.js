@@ -6,20 +6,22 @@ const app = express()
 
 
 //======== Routes Start Here =============//
+
 app.get('/greeting/:name', (req, res) => {
-    const whatsUp = req.params.name
+    const WHATS_UP = req.params.name
 
-    res.send(`Hello ${whatsUp}! It's so great to see you!`)
+    res.send(`Hello ${WHATS_UP}! It's so great to see you!`)
 })
 
-app.get('/greet/:name', (req, res) => {
-  const whatsUp = req.params.name
+app.get('/:total/:tipPercentage', (req, res) => {
+  const makeItRain1 = (req.params.total) 
+  const makeItRain2 = (req.params.tipPercentage)
+  
+  const tipTotal =  (makeItRain2 / makeItRain1) * 100 
 
-  res.send(`Hi ${whatsUp}! It's so great to see you!`)
+      res.send(`${tipTotal}`)
+
 })
-
-
-
 
 //==========Routes End Here =============//
 
