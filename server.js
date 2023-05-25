@@ -20,7 +20,6 @@ app.get("/total/:tipPercentage", (req, res) => {
 
   res.send(`${tipTotal}`);
 });
-//===== Fibonacci ========//
 
 app.get("/magic/:WillIBeAMillionaire", (req, res) => {
   const eightBall = req.params.WillIBeAMillionaire;
@@ -52,6 +51,32 @@ app.get("/magic/:WillIBeAMillionaire", (req, res) => {
   const targetAnswer = responses[randomWord];
 
   res.send(targetAnswer);
+});
+
+//===== Fibonacci Route ========//
+
+app.get("/fibonacci/:number", (req, res) => {
+  const params = parseInt(req.params.number);
+
+  function isFibonacci(num) {
+    let fib1 = 0;
+    let fib2 = 1;
+    let fib3 = fib1 + fib2;
+
+    while (fib3 <= num) {
+      if (num === fib3) {
+        return "Very good. It is Fibonacci";
+      } 
+      
+      fib1 = fib2;
+      fib2 = fib3;
+      fib3 = fib1 + fib2;
+      
+    }
+    return "I can tell this is not a fibonacci number.";
+  }
+
+  res.send(isFibonacci(params));
 });
 
 //==========Routes End Here =============//
